@@ -4,7 +4,7 @@ var map = new ol.Map({
     renderer: 'canvas',
     layers: layersList,
     view: new ol.View({
-        extent: [8344497.509666, 886212.033284, 8682932.135062, 1073297.012539], maxZoom: 28, minZoom: 1, projection: new ol.proj.Projection({
+        extent: [8447668.269194, 906650.992193, 8616885.581891, 1000193.481821], maxZoom: 28, minZoom: 1, projection: new ol.proj.Projection({
             code: 'EPSG:3857',
             //extent: [-20037508.342789, -20037508.342789, 20037508.342789, 20037508.342789],
             units: 'm'})
@@ -12,7 +12,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([8344497.509666, 886212.033284, 8682932.135062, 1073297.012539], map.getSize());
+map.getView().fit([8447668.269194, 906650.992193, 8616885.581891, 1000193.481821], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -914,6 +914,17 @@ document.getElementsByClassName('gcd-gl-btn')[0].className += ' fa fa-search';
 
 //layer search
 
+var searchLayer = new SearchLayer({
+    layer: lyr_RecoinssanceSurveyCompletedRoad231124_2,
+    colName: 'Road_Name',
+    zoom: 10,
+    collapsed: true,
+    map: map
+});
+map.addControl(searchLayer);
+document.getElementsByClassName('search-layer')[0].getElementsByTagName('button')[0].className += ' fa fa-binoculars';
+document.getElementsByClassName('search-layer-input-search')[0].placeholder = 'Search feature ...';
+    
 
 //scalebar
 
